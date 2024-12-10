@@ -3,4 +3,177 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#E5E5E5"
+        android:padding="16dp">
+
+        <!-- Encabezado -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#9056c5"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/titleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Señas Registradas"
+                android:textSize="20sp"
+                android:textColor="#FFFFFF"
+                android:layout_centerInParent="true"
+                android:fontFamily="sans-serif-medium" />
+
+            <ImageView
+                android:id="@+id/handIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentEnd="true"
+                />
+        </RelativeLayout>
+
+        <!-- Contenido -->
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:rowCount="2"
+            android:columnCount="3"
+            android:alignmentMode="alignMargins"
+            android:columnOrderPreserved="false"
+            android:padding="16dp">
+
+            <!-- Letra A -->
+            <FrameLayout
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="8dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="Fondo Letra A" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="A"
+                    android:textSize="24sp"
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:fontFamily="sans-serif-bold" />
+            </FrameLayout>
+
+            <!-- Letra B -->
+            <FrameLayout
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="8dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="Fondo Letra B" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="B"
+                    android:textSize="24sp"
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:fontFamily="sans-serif-bold" />
+            </FrameLayout>
+
+            <!-- Agrega el resto de las letras de forma similar -->
+            <!-- Letra C -->
+            <FrameLayout
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="8dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="Fondo Letra C" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="C"
+                    android:textSize="24sp"
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:fontFamily="sans-serif-bold" />
+            </FrameLayout>
+
+            <!-- Letra D -->
+            <FrameLayout
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="8dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="Fondo Letra D" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="D"
+                    android:textSize="24sp"
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:fontFamily="sans-serif-bold" />
+            </FrameLayout>
+
+            <!-- Letra E -->
+            <FrameLayout
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="8dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="Fondo Letra E" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="E"
+                    android:textSize="24sp"
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:fontFamily="sans-serif-bold" />
+            </FrameLayout>
+
+            <!-- Letra F -->
+            <FrameLayout
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="8dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="Fondo Letra F" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="F"
+                    android:textSize="24sp"
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:fontFamily="sans-serif-bold" />
+            </FrameLayout>
+        </GridLayout>
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

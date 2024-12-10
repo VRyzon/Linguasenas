@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginViewFragment">
+    <fragment
+        android:id="@+id/loginViewFragment"
+        android:name="com.example.linguasenas.ui.LoginViewFragment"
+        android:label="LoginViewFragment" >
+        <action
+            android:id="@+id/action_loginViewFragment_to_dashboardFragment22"
+            app:destination="@id/dashboardFragment2" />
+        <action
+            android:id="@+id/action_loginViewFragment_to_registerUserFragment2"
+            app:destination="@id/registerUserFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerUserFragment2"
+        android:name="com.example.linguasenas.ui.RegisterUserFragment"
+        android:label="RegisterUserFragment" />
+    <fragment
+        android:id="@+id/dashboardFragment2"
+        android:name="com.example.linguasenas.ui.DashboardFragment"
+        android:label="DashboardFragment" >
+        <action
+            android:id="@+id/action_dashboardFragment2_to_onCameraFragment"
+            app:destination="@id/onCameraFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment2_to_registerSignFragment"
+            app:destination="@id/registerSignFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onCameraFragment"
+        android:name="com.example.linguasenas.ui.OnCameraFragment"
+        android:label="OnCameraFragment" />
+    <fragment
+        android:id="@+id/registerSignFragment"
+        android:name="com.example.linguasenas.ui.RegisterSignFragment"
+        android:label="RegisterSignFragment" />
+</navigation>

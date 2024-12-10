@@ -11,21 +11,22 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.linguasenas.databinding.LoginViewFragmentBinding
+import com.example.linguasenas.databinding.RegisterUserFragmentBinding
 import com.google.firebase.auth.FirebaseAuth
 
 
-class LoginViewFragment : Fragment() {
+class RegisterUserFragment : Fragment() {
 
     private lateinit var firebaseAuth: FirebaseAuth
-    private var _binding:LoginViewFragmentBinding?=null
+    private var _binding: RegisterUserFragmentBinding?=null
     private val binding get() = _binding!!
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = LoginViewFragmentBinding.inflate(inflater,container,false)
+        _binding = RegisterUserFragmentBinding.inflate(inflater,container,false)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -33,18 +34,14 @@ class LoginViewFragment : Fragment() {
 
         firebaseAuth = FirebaseAuth.getInstance()
 
-        binding.buttonLogin.setOnClickListener {
-            loginUser()
-        }
-
-        binding.buttonGoToRegister.setOnClickListener {
-            findNavController().navigate(R.id.action_loginViewFragment_to_registerUserFragment2)
+        binding.buttonRegister.setOnClickListener {
+            registerUser()
         }
     }
 
-    private fun loginUser() {
-        val email = binding.editTextEmail.text.toString().trim()
-        val password = binding.editTextPassword.text.toString().trim()
+    private fun registerUser() {
+        val email =  binding.editTextEmail.text.toString().trim()
+        val password =  binding.editTextPassword.text.toString().trim()
 
         if (TextUtils.isEmpty(email)) {
             binding.editTextEmail.error = "El correo electrónico es obligatorio"
@@ -64,14 +61,20 @@ class LoginViewFragment : Fragment() {
             return
         }
 
-        firebaseAuth.signInWithEmailAndPassword(email, password)
+        if (password.length < 6) {
+            binding.editTextPassword.error = "La contraseña debe tener al menos 6 caracteres"
+            binding.editTextPassword.requestFocus()
+            return
+        }
+
+        firebaseAuth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    Toast.makeText(context, "Inicio de sesión exitoso", Toast.LENGTH_LONG).show()
-                    findNavController().navigate(R.id.action_loginViewFragment_to_dashboardFragment22)
+                    Toast.makeText(context, "Registro exitoso", Toast.LENGTH_LONG).show()
+                    //findNavController().navigate(R.id.action_registerUserFragment_to_loginViewFragment)
                 } else {
                     val errorMessage = task.exception?.message
-                    Toast.makeText(context, "Error en el inicio de sesión: $errorMessage", Toast.LENGTH_LONG).show()
+                    Toast.makeText(context, "Error en el registro: $errorMessage", Toast.LENGTH_LONG).show()
                 }
             }
     }

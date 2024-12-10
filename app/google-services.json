@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "445136408144",
+    "project_id": "linguasenas-84fa3",
+    "storage_bucket": "linguasenas-84fa3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:445136408144:android:860772043ca73b408e8b55",
+        "android_client_info": {
+          "package_name": "com.example.linguasenas"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpxQusT7iY7_c7Mn76hsMOOqspNDl5RcA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

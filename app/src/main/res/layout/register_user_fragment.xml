@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -27,18 +28,12 @@
             android:layout_marginTop="10dp" />
 
         <Button
-            android:id="@+id/buttonLogin"
+            android:id="@+id/buttonRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Iniciar Sesión"
+            android:text="Registrarse"
             android:layout_marginTop="20dp" />
 
-        <Button
-            android:id="@+id/buttonGoToRegister"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Registrar Usuario"
-            android:layout_marginTop="10dp" />
-
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
