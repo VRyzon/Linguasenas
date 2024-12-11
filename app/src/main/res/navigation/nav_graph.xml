@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/loginViewFragment">
+    app:startDestination="@id/onCameraFragment">
     <fragment
         android:id="@+id/loginViewFragment"
         android:name="com.example.linguasenas.ui.LoginViewFragment"
@@ -32,9 +32,17 @@
     <fragment
         android:id="@+id/onCameraFragment"
         android:name="com.example.linguasenas.ui.OnCameraFragment"
-        android:label="OnCameraFragment" />
+        android:label="OnCameraFragment">
+        <action
+            android:id="@+id/action_onCameraFragment_to_cameraRealTimeFragment"
+            app:destination="@id/cameraRealTimeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/registerSignFragment"
         android:name="com.example.linguasenas.ui.RegisterSignFragment"
         android:label="RegisterSignFragment" />
+    <fragment
+        android:id="@+id/cameraRealTimeFragment"
+        android:name="com.example.linguasenas.ui.CameraRealTimeFragment"
+        android:label="CameraRealTimeFragment" />
 </navigation>
