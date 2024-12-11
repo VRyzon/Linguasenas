@@ -71,7 +71,7 @@ class RegisterUserFragment : Fragment() {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     Toast.makeText(context, "Registro exitoso", Toast.LENGTH_LONG).show()
-                    //findNavController().navigate(R.id.action_registerUserFragment_to_loginViewFragment)
+                    findNavController().navigate(R.id.action_registerUserFragment2_to_loginViewFragment)
                 } else {
                     val errorMessage = task.exception?.message
                     Toast.makeText(context, "Error en el registro: $errorMessage", Toast.LENGTH_LONG).show()

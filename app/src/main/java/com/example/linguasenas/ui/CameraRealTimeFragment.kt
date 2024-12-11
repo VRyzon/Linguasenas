@@ -25,6 +25,7 @@ import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 import androidx.camera.view.PreviewView
 import com.example.imagepicker1.Classifier
+import kotlinx.coroutines.launch
 
 class CameraRealTimeFragment : Fragment(R.layout.camera_real_time_fragment) {
 
@@ -52,7 +53,9 @@ class CameraRealTimeFragment : Fragment(R.layout.camera_real_time_fragment) {
                 requireContext(), android.Manifest.permission.CAMERA
             ) == PermissionChecker.PERMISSION_GRANTED
         ) {
-            startCamera()
+            if (isAdded) {
+                startCamera()
+            }
         } else {
             ActivityCompat.requestPermissions(
                 requireActivity(), arrayOf(android.Manifest.permission.CAMERA), 0
@@ -111,7 +114,7 @@ class CameraRealTimeFragment : Fragment(R.layout.camera_real_time_fragment) {
         // Incrementar el contador de fotogramas
         frameCount++
 
-        // Procesar cada fotograma si el contador alcanza el intervalo (30 fotogramas para 1 segundo)
+        // Procesar cada fotograma si el contador alcanza el intervalo (20 fotogramas para 1 segundo)
         if (frameCount >= frameInterval) {
             // Convertir ImageProxy a Bitmap (usa el método necesario)
             val bitmap = image.toBitmap()
@@ -121,8 +124,11 @@ class CameraRealTimeFragment : Fragment(R.layout.camera_real_time_fragment) {
             Log.d("Classifier", result.toString())
 
             // Asegúrate de actualizar la UI en el hilo principal
-            requireActivity().runOnUiThread {
-                textView.text = "$result"  // Actualiza el TextView en el hilo principal
+            lifecycleScope.launch {
+                // Verificar si el fragmento sigue adjunto antes de actualizar la UI
+                if (isAdded) {
+                    textView.text = "$result"  // Actualiza el TextView
+                }
             }
 
             // Reiniciar el contador de fotogramas

@@ -22,6 +22,8 @@ class DashboardFragment : Fragment() {
     ): View {
         _binding = DashboardFragmentBinding.inflate(inflater, container, false)
 
+        firebaseAuth = FirebaseAuth.getInstance()
+
         // Configuración de botones
         binding.buttonsigncreate.setOnClickListener {
             // Navega al fragmento OnCameraFragment
@@ -33,7 +35,16 @@ class DashboardFragment : Fragment() {
             findNavController().navigate(R.id.action_dashboardFragment2_to_registerSignFragment)
         }
 
+        binding.buttonLogout.setOnClickListener {
+            logoutUser()
+        }
+
         return binding.root
+    }
+
+    private fun logoutUser() {
+        firebaseAuth.signOut()
+        findNavController().navigate(R.id.action_dashboardFragment2_to_loginViewFragment)
     }
 
     override fun onDestroyView() {
